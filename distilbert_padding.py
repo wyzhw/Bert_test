@@ -32,7 +32,7 @@ print("padding done")
 
 # !pip install transformers
 from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 
 def preprocess_function(examples):
     return tokenizer(examples["text"], truncation=True)
@@ -68,7 +68,7 @@ label2id = {"NEGATIVE": 0, "POSITIVE": 1}
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "bert-base-uncased", num_labels=2, id2label=id2label, label2id=label2id
+    "distilbert-base-uncased", num_labels=2, id2label=id2label, label2id=label2id
 )
 
 # define the range of n
@@ -76,8 +76,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 for n in n_range:
     # use format method to create a variable name with n
     variable = f"tokenized_imdb_{n}"
-    output_dir = f"bert_imdb_padding{n}model"
-    logging_dir=f"bert_imdb_padding{n}model_logs"
+    output_dir = f"distilbert_imdb_padding{n}model"
+    logging_dir=f"distilbert_imdb_padding{n}model_logs"
 
     # use exec function to execute the assignment statement
     var = eval(variable)
@@ -86,7 +86,7 @@ for n in n_range:
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        num_train_epochs=20,
+        num_train_epochs=0.01,
         weight_decay=0.01,
         
         evaluation_strategy="epoch",
@@ -122,7 +122,7 @@ label2id = {"NEGATIVE": 0, "POSITIVE": 1}
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "bert-base-uncased", num_labels=2, id2label=id2label, label2id=label2id
+    "distilbert-base-uncased", num_labels=2, id2label=id2label, label2id=label2id
 )
 
 # define the range of n
@@ -130,8 +130,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 for n in n_range:
     # use format method to create a variable name with n
     variable = f"tokenized_sst2_{n}"
-    output_dir = f"bert_sst2_padding{n}model"
-    logging_dir=f"bert_sst2_padding{n}model_logs"
+    output_dir = f"distilbert_sst2_padding{n}model"
+    logging_dir=f"distilbert_sst2_padding{n}model_logs"
 
     # use exec function to execute the assignment statement
     var = eval(variable)
@@ -140,7 +140,7 @@ for n in n_range:
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        num_train_epochs=20,
+        num_train_epochs=0.01,
         weight_decay=0.01,
         
         evaluation_strategy="epoch",
@@ -175,7 +175,7 @@ label2id = {"very positive": 4, "positive": 3, "neutral": 2, "negative": 1, "ver
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "bert-base-uncased", num_labels=5, id2label=id2label, label2id=label2id
+    "distilbert-base-uncased", num_labels=5, id2label=id2label, label2id=label2id
 )
 
 # define the range of n
@@ -183,8 +183,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 for n in n_range:
     # use format method to create a variable name with n
     variable = f"tokenized_sst5_{n}"
-    output_dir = f"bert_sst5_padding{n}model"
-    logging_dir=f"bert_sst5_padding{n}model_logs"
+    output_dir = f"distilbert_sst5_padding{n}model"
+    logging_dir=f"distilbert_sst5_padding{n}model_logs"
 
     # use exec function to execute the assignment statement
     var = eval(variable)
@@ -193,7 +193,7 @@ for n in n_range:
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        num_train_epochs=20,
+        num_train_epochs=0.01,
         weight_decay=0.01,
         
         evaluation_strategy="epoch",
@@ -232,15 +232,15 @@ label2id = {"Bearish": 0, "Bullish": 1, "Neutral": 2}
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "bert-base-uncased", num_labels=3, id2label=id2label, label2id=label2id
+    "distilbert-base-uncased", num_labels=3, id2label=id2label, label2id=label2id
 )
 
 # define the range of n
 for n in n_range:
     # use format method to create a variable name with n
     variable = f"tokenized_twitterfin_{n}"
-    output_dir = f"bert_twitterfin_padding{n}model"
-    logging_dir=f"bert_twitterfin_padding{n}model_logs"
+    output_dir = f"distilbert_twitterfin_padding{n}model"
+    logging_dir=f"distilbert_twitterfin_padding{n}model_logs"
 
     # use exec function to execute the assignment statement
     var = eval(variable)
@@ -249,7 +249,7 @@ for n in n_range:
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        num_train_epochs=20,
+        num_train_epochs=0.01,
         weight_decay=0.01,
         
         evaluation_strategy="epoch",
@@ -284,15 +284,15 @@ label2id = {"World": 0, "Sports": 1, "Business": 2, "Sci/Tech": 3}
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "bert-base-uncased", num_labels=4, id2label=id2label, label2id=label2id
+    "distilbert-base-uncased", num_labels=4, id2label=id2label, label2id=label2id
 )
 
 # define the range of n
 for n in n_range:
     # use format method to create a variable name with n
     variable = f"tokenized_agnews_{n}"
-    output_dir = f"bert_agnews_padding{n}model"
-    logging_dir=f"bert_agnews_padding{n}model_logs"
+    output_dir = f"distilbert_agnews_padding{n}model"
+    logging_dir=f"distilbert_agnews_padding{n}model_logs"
 
     # use exec function to execute the assignment statement
     var = eval(variable)
@@ -301,7 +301,7 @@ for n in n_range:
         learning_rate=2e-5,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        num_train_epochs=20,
+        num_train_epochs=0.01,
         weight_decay=0.01,
         
         evaluation_strategy="epoch",
